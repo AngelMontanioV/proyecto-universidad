@@ -1,7 +1,8 @@
 package com.springsimplespasos.universidad.universidadbackend.modelo.entidades;
 
+import javax.persistence.Embeddable;
 import java.io.Serializable;
-
+@Embeddable
 public class Direccion implements Serializable {
     private String calle;
     private String numero;
@@ -9,6 +10,18 @@ public class Direccion implements Serializable {
     private String dpto;
     private String piso;
     private String localidad;
+
+    public Direccion() {
+    }
+
+    public Direccion(String calle, String numero, String codigoPostal, String dpto, String piso, String localidad) {
+        this.calle = calle;
+        this.numero = numero;
+        this.codigoPostal = codigoPostal;
+        this.dpto = dpto;
+        this.piso = piso;
+        this.localidad = localidad;
+    }
 
     public String getCalle() {
         return calle;
