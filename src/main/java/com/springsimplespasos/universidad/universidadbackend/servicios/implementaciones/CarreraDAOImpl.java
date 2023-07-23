@@ -11,34 +11,11 @@ import com.springsimplespasos.universidad.universidadbackend.repositorios.Carrer
 import com.springsimplespasos.universidad.universidadbackend.servicios.contratos.CarreraDAO;
 
 @Service
-public class CarreraDAOImpl implements CarreraDAO{
+public class CarreraDAOImpl extends GenericDAOImpl<Carrera, CarreraRepository> implements CarreraDAO{
 
   @Autowired
-  private CarreraRepository repository;
-
-  
-  @Override
-  @Transactional(readOnly = true)
-  public Optional<Carrera> finById(Integer id) {
-    return repository.findById(id);
-  }
-  
-  @Override
-  @Transactional
-  public Carrera save(Carrera carrera) {
-    return repository.save(carrera);
-  }
-  
-  @Override
-  @Transactional(readOnly = true)
-  public Iterable<Carrera> findAll() {
-    return repository.findAll();
+  public CarreraDAOImpl(CarreraRepository repository) {
+    super(repository);
   }
 
-  @Override
-  @Transactional
-  public void deleteById(Integer id) {
-    repository.deleteById(id);
-    
   }
-}
